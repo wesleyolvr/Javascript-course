@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Curso javascript </title>
+</head>
+<body>
+<div id="app"> 
+ <input type="text" name="nome" value="">
+<button onClick="adicionar()" id="btn">Adicionar</button>
+</div>
+
+<script>
+
+function adicionar(){
+	var nomeElement = document.getElementsByName("nome")[0].value;
+
+
+	var nomes = ["Diego", "Gabriel", "Lucas"];
+
+	nomes.push(nomeElement);
+	var linkElement = document.createElement('UL');
+	linkElement.setAttribute("id","myUL");
+	document.body.appendChild(linkElement);
+
+	for (var i = 0; i < nomes.length; i++) {
+		var li = document.createElement("LI");
+		var nm = document.createTextNode(nomes[i]);
+		li.appendChild(nm);
+		document.getElementById("myUL").appendChild(li);
+	}
+	var nomeElement = document.getElementsByName("nome")[0].value = "";
+
+	
+}
+
+
+
+</script>
+</body>
+</html>
