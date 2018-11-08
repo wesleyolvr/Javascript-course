@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Curso javascript </title>
+</head>
+<body>
+<div id="app"> 
+ 
+</div>
+
+<script>
+var nomes = ["Diego", "Gabriel", "Lucas"];
+
+var linkElement = document.createElement('UL');
+linkElement.setAttribute("id","myUL");
+document.body.appendChild(linkElement);
+
+
+for (var i = 0; i < nomes.length; i++) {
+	var li = document.createElement("LI");
+	var nm = document.createTextNode(nomes[i]);
+	li.appendChild(nm);
+	document.getElementById("myUL").appendChild(li);
+
+}
+//var containerElement = document.querySelector("#app")
+//containerElement.appendChild(linkElement);
+
+
+</script>
+</body>
+</html>
