@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Curso JavaScript</title>
+</head>
+<body>
+	<div id="app">
+		<button onclick="exibe()"> quadrado</button>
+		<div class="box"></div> 
+	</div>
+
+<script>
+
+	function exibe(){
+	var linkElement = document.createElement('div');
+	linkElement.style.width = '200px';
+	linkElement.style.height = '	200px';
+	linkElement.style.backgroundColor = '#CCFF33';
+	var containerElement = document.querySelector('#app');
+	containerElement.appendChild(linkElement);
+	}
+
+	// function exibe(){
+	// var boxElement= document.querySelector('.box');
+
+	// boxElement.style.width = '200px';
+	// boxElement.style.height = '	200px';
+	// boxElement.style.backgroundColor = '#CCFF33';
+	// }
+	
+
+</script>
+
+</body>
+</html>
