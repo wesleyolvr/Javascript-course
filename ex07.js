@@ -1,6 +1,14 @@
-
 function github() {
     var user = document.getElementsByName("user")[0].value
+    var linkElement = document.createElement('UL');
+    linkElement.setAttribute("id","myUL");
+    document.body.appendChild(linkElement);
+    var li = document.createElement("LI");
+    var nm = document.createTextNode("Carregando...");
+    li.appendChild(nm);
+    document.getElementById("myUL").appendChild(li);
+
+
     var checa = new Promise(function(resolve,reject){ 
         var xhr = new XMLHttpRequest();
         xhr.open("GET" , "https://api.github.com/users/"+user+"/repos");
@@ -11,22 +19,20 @@ function github() {
                 if (xhr.status === 200){
                     resolve(JSON.parse(xhr.responseText));
                 } else if (xhr.status === 404){
-                    reject("Pagina não existente!");
+                    reject("Pagina nao existente!");
                 }
             }
         }
     });
+    
     checa.then(function(response) {
-        var linkElement = document.createElement('UL');
-	    linkElement.setAttribute("id","myUL");
-	    document.body.appendChild(linkElement);
-
-	for (var i = 0; i < response.length; i++) {
-		var li = document.createElement("LI");
-		var nm = document.createTextNode(response[i].name);
-		li.appendChild(nm);
-		document.getElementById("myUL").appendChild(li);
-	}
+        document.getElementById("myUL").innerHTML = "";
+        for (var i = 0; i < response.length; i++) {
+            var li = document.createElement("LI");
+            var nm = document.createTextNode(response[i].name);
+            li.appendChild(nm);
+            document.getElementById("myUL").appendChild(li);
+        }
         console.log(response);
         })
         .catch(function(error) {
@@ -35,5 +41,4 @@ function github() {
             para.appendChild(t);                                          
             document.body.appendChild(para); 
         });
-   }
-    
+   };
