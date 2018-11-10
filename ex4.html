@@ -13,10 +13,9 @@
 
 function adicionar(){
 	var nomeElement = document.getElementsByName("nome")[0].value;
-
-
 	var nomes = ["Diego", "Gabriel", "Lucas"];
 
+	
 	nomes.push(nomeElement);
 	var linkElement = document.createElement('UL');
 	linkElement.setAttribute("id","myUL");
@@ -29,8 +28,6 @@ function adicionar(){
 		document.getElementById("myUL").appendChild(li);
 	}
 	var nomeElement = document.getElementsByName("nome")[0].value = "";
-
-	
 }
 
 
